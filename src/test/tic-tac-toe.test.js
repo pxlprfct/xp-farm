@@ -249,7 +249,7 @@ describe(`Tic-tac-toe is a game for two players, 'X' and 'O', who take turns mar
       expect(mockConsole).toHaveBeenCalledWith(DRAW_O_FOURTH_MOVE);
     });
 
-    test(`Player X's third move selects the bottom middle square, and the game is a draw`, () => {
+    test(`Player X's fifth move selects the bottom middle square, and the game is a draw`, () => {
       makeMove.mockImplementation(() => [2, 1]);
 
       STATE = nextTurn(STATE);
