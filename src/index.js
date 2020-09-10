@@ -22,16 +22,6 @@ ${START_WITH_PLAYER}`);
 
 const CURRENT_PLAYER = (player) => `Player ${player}:`;
 
-const PLAYER_WIN = (player) => `PLAYER ${player} WON!`;
-
-const PLAYER_WIN_MESSAGE = (state) => {
-  console.log(`
-${CURRENT_PLAYER(state.currentPlayer)}
-${renderBoard(state.currentBoard)}
-\n
-${PLAYER_WIN(state.currentPlayer)}`);
-};
-
 const PLAYER_X = 'X';
 const PLAYER_O = 'O';
 
@@ -48,7 +38,7 @@ const startGame = () => {
   };
 };
 
-const calculateWinner = (board) => {
+const calculateWinner = (board, currentPlayer) => {
   const flatBoard = board.flat();
 
   const winningCombinations = [
@@ -66,9 +56,9 @@ const calculateWinner = (board) => {
 
   winningCombinations.map((combination) => {
     if (
-      flatBoard[combination[0]] === PLAYER_X &&
-      flatBoard[combination[1]] === PLAYER_X &&
-      flatBoard[combination[2]] === PLAYER_X
+      flatBoard[combination[0]] === currentPlayer &&
+      flatBoard[combination[1]] === currentPlayer &&
+      flatBoard[combination[2]] === currentPlayer
     ) {
       hasWon = true;
     }
@@ -88,7 +78,7 @@ const nextTurn = (state) => {
     currentBoard[row][column] = state.currentPlayer;
   }
 
-  if (calculateWinner(currentBoard)) {
+  if (calculateWinner(currentBoard, state.currentPlayer)) {
     console.log(`
 ${CURRENT_PLAYER(state.currentPlayer)}
 ${renderBoard(currentBoard)}
