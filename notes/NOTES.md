@@ -39,11 +39,13 @@ Empty side: The player plays in a middle square on any of the 4 sides.
 
 
 # Pomodoro 3
-- 🔧Able to detect a winner
-- 🔧Able to retry moves
+- ✅Able to detect a winner
+- ✅Added all test cases
+
+
+# Pomodoro 4
+- 🔧Able to retry random moves
 - 🔧Able to detect if no more moves
-
-
 
 # TODO
 - Play until winner or no more moves
@@ -56,4 +58,6 @@ Empty side: The player plays in a middle square on any of the 4 sides.
 - Should split the code a little more around the states
 - We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index
 - test make move
-- work out better print to screen
+- ✅work out better print to screen
+- Use constants more
+- Ensure test titles are perfect
