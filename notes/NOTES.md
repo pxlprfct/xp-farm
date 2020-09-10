@@ -32,3 +32,8 @@ Opposite corner: If the opponent is in the corner, the player plays the opposite
 Empty corner: The player plays in a corner square.
 Empty side: The player plays in a middle square on any of the 4 sides.
 
+
+# Pomodoro 2
+- Advance a board
+- Able to move one board at a time 
+- Able to detect a winner
