@@ -1,3 +1,5 @@
+const makeMove = require('./makeMove');
+
 const renderBoard = (board) => `
 ${board[0][0]}|${board[0][1]}|${board[0][2]}
 -+-+-
@@ -18,17 +20,93 @@ ${BOARD_CREATED}
 ${START_WITH_PLAYER}`);
 };
 
-const startGame = async () => {
+const CURRENT_PLAYER = (player) => `Player ${player}:`;
+
+const PLAYER_WIN = (player) => `PLAYER ${player} WON!`;
+
+const PLAYER_WIN_MESSAGE = (state) => {
+  console.log(`
+${CURRENT_PLAYER(state.currentPlayer)}
+${renderBoard(state.currentBoard)}
+\n
+${PLAYER_WIN(state.currentPlayer)}`);
+};
+
+const PLAYER_X = 'X';
+const PLAYER_O = 'O';
+
+const togglePlayer = (player) => (player === PLAYER_X ? PLAYER_O : PLAYER_X);
+
+const startGame = () => {
   const BOARD = Array.from(Array(3), () => new Array(3).fill(' '));
 
   START_GAME_MESSAGE(BOARD);
-  BOARD.push(BOARD);
 
-  return BOARD;
+  return {
+    currentBoard: BOARD,
+    currentPlayer: PLAYER_X,
+  };
 };
 
-startGame();
+const calculateWinner = (board) => {
+  const flatBoard = board.flat();
+
+  const winningCombinations = [
+    [0, 1, 2], // horizontal top row
+    [3, 4, 5], // horizontal middle row
+    [6, 7, 8], // horizontal bottom row
+    [0, 3, 6], // vertical left column
+    [1, 4, 7], // vertical middle column
+    [2, 5, 8], // vertical right columns
+    [0, 4, 8], // top left to bottom right diagonal
+    [2, 4, 6], // top right to bottom left diagonal
+  ];
+
+  let hasWon = false;
+
+  winningCombinations.map((combination) => {
+    if (
+      flatBoard[combination[0]] === PLAYER_X &&
+      flatBoard[combination[1]] === PLAYER_X &&
+      flatBoard[combination[2]] === PLAYER_X
+    ) {
+      hasWon = true;
+    }
+  });
+
+  return hasWon;
+};
+
+const nextTurn = (state) => {
+  const { currentBoard } = state;
+
+  const [row, column] = makeMove();
+
+  calculateWinner(currentBoard);
+
+  if (currentBoard[row][column] === ' ') {
+    currentBoard[row][column] = state.currentPlayer;
+  }
+
+  if (calculateWinner(currentBoard)) {
+    console.log(`
+${CURRENT_PLAYER(state.currentPlayer)}
+${renderBoard(currentBoard)}
+
+PLAYER X WON!`);
+  } else {
+    console.log(`
+${CURRENT_PLAYER(state.currentPlayer)}
+${renderBoard(currentBoard)}`);
+  }
+
+  return {
+    currentBoard,
+    currentPlayer: togglePlayer(state.currentPlayer),
+  };
+};
 
 module.exports = {
   startGame,
+  nextTurn,
 };
