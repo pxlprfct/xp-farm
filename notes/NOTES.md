@@ -34,6 +34,26 @@ Empty side: The player plays in a middle square on any of the 4 sides.
 
 
 # Pomodoro 2
-- Advance a board
-- Able to move one board at a time 
-- Able to detect a winner
+- ✅ Advance a board
+- ✅ Able to move one board at a time 
+
+
+# Pomodoro 3
+- 🔧Able to detect a winner
+- 🔧Able to retry moves
+- 🔧Able to detect if no more moves
+
+
+
+# TODO
+- Play until winner or no more moves
+- Refactor!
+
+
+
+
+# Refactor
+- Should split the code a little more around the states
+- We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index
+- test make move
+- work out better print to screen
