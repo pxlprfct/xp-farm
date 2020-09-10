@@ -37,27 +37,24 @@ Empty side: The player plays in a middle square on any of the 4 sides.
 - ✅ Advance a board
 - ✅ Able to move one board at a time 
 
-
 # Pomodoro 3
 - ✅Able to detect a winner
 - ✅Added all test cases
 
-
 # Pomodoro 4
-- 🔧Able to retry random moves
-- 🔧Able to detect if no more moves
-
-# TODO
-- Play until winner or no more moves
-- Refactor!
-
-
+- ✅Able to retry random moves
+- ✅Able to detect if no more moves
+- ✅ Play until winner or no more moves
 
 
 # Refactor
-- Should split the code a little more around the states
-- We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index
-- test make move
+- ✅Should split the code a little more around the states
+- ✅test make move
 - ✅work out better print to screen
-- Use constants more
-- Ensure test titles are perfect
+- ✅Use constants more
+
+# NYI
+- 🚧Ensure test titles are perfect
+- 🚧Get 100% coverage, by setting the same value twice - and checking that the makeMove() function is called twice
+- 🚧We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index and whether it's even or not
+- 🚧the flattening of the board doesn't make _too_ much sense if you're not aware of that being how you solve the problem - add a comment?
