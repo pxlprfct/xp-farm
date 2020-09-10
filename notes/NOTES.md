@@ -4,23 +4,23 @@ https://en.wikipedia.org/wiki/Tic-tac-toe
 - ✅ Understand the problem area a bit
 - ✅ Skim read the wikipedia
 - ✅ Use the DDL in wikipedia to start thinking about tests
-- Hook up the tests to _something_.
+- ✅ Hook up the tests to _something_.
 
+## Rough ideas of possible e2e test
+- Tic-tac-toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid.
+- The player who succeeds in placing three of their marks in a horizontal, - vertical, or diagonal row is the winner.
 
-Tic-tac-toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid.
-The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+- The first player is designated "X"
+- The second player is designated "O"
 
-The first player is designated "X"
-The second player is designated "O"
-
-There are 3 possible 'end' states
-win - you've got got '3 in a row' (either horizontally or vertically)
+- There are 3 possible 'end' states
+- win - you've got got '3 in a row' (either horizontally or vertically)
 lose - your opponent has got '3 in a row' (either horizontally or vertically)
-draw - a draw occurs when neither player has won, and there's no more available moves
+- draw - a draw occurs when neither player has won, and there's no more available moves
 
 when the games not in an end state, it can keep going!
 
-possible specific tests
+## Possible unit tests
 A player can play a perfect game of tic-tac-toe (to win or at least draw) if, each time it is their turn to play, they choose the first available move from the following list, as used in Newell and Simon's 1972 tic-tac-toe program.[16]
 
 Win: If the player has two in a row, they can place a third to get three in a row.
