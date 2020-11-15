@@ -1,0 +1,7 @@
+{
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "clearMocks": true,
+  "resetMocks": true,
+  "resetModules": true
+}

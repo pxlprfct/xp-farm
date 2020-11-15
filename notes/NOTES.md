@@ -54,7 +54,7 @@ Empty side: The player plays in a middle square on any of the 4 sides.
 - ✅Use constants more
 
 # NYI
-- 🚧Ensure test titles are perfect
-- 🚧Get 100% coverage, by setting the same value twice - and checking that the makeMove() function is called twice
-- 🚧We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index and whether it's even or not
-- 🚧the flattening of the board doesn't make _too_ much sense if you're not aware of that being how you solve the problem - add a comment?
+- 🚧 Ensure test titles are perfect
+- 🚧 Get 100% coverage, by setting the same value twice - and checking that the makeMove() function is called twice
+- 🚧 We _could_ push board states to an array of all states ala event sourcing, and work out who's playing by the index and whether it's even or not
+- 🚧 The flattening of the board doesn't make _too_ much sense if you're not aware of that being how you solve the problem - add a comment?
